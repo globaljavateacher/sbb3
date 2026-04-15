@@ -2,9 +2,7 @@ FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /sbb3
 
-COPY . .
+# jar만 복사
+COPY build/libs/app.jar app.jar
 
-RUN chmod +x gradlew
-RUN ./gradlew build
-
-CMD ["java", "-Xmx256m", "-jar", "build/libs/sbb3-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-Xmx256m", "-jar", sbb3-0.0.1-SNAPSHOT.jar"]
